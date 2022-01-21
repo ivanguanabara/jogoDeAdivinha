@@ -1,0 +1,114 @@
+<html>
+    <link rel="stylesheet" href="style.css">
+    <body>
+        <br>
+        <h1>Jogo de Adivinha</h1>
+        <h3>Qual número que estou pensando?</h3>
+        <br>
+        <h4>Escolher um número de 1 a 100</h4>
+        <hr>
+        <h5>Sua chance é de 15%</h4>
+    </body>
+    <input>
+    <br>
+    <hr>
+    <button>Clique aqui</button>
+    <br>
+    <br>
+    <br>
+
+    <script>
+
+            function sorteia() {
+
+                return Math.round(Math.random() * 100);
+
+            }
+            
+            function sorteia() {
+
+                return Math.round(Math.random() * 100);
+
+            }
+
+            function sorteiaNumeros(quantidade) {
+
+                var segredos = [];
+
+                var numero = 1;
+
+                while(numero <= quantidade) {
+
+                    var numeroAleatorio = sorteia();
+
+                    if(numeroAleatorio !== 0) {
+
+                        var achou = false;
+
+                    for(var i = 0; i < segredos.length; i ++) {
+
+                        if (segredos [i] == numeroAleatorio) {
+                            achou = true;
+                            break; 
+                        }
+
+                    }
+
+                    if(achou == false) {
+                        segredos.push(numeroAleatorio);
+                        numero++;
+                                 
+                    }
+
+                }                   
+
+         
+
+                }
+                
+                return segredos;
+
+            }
+
+            var segredos = sorteiaNumeros(15);
+
+            console.log(segredos);
+
+            var input = document.querySelector("input");
+            input.focus();
+             
+            function verifica() {
+
+                var achou = false;  
+                for(var i = 0; i < segredos.length; i++) {
+
+                    if (input.value == segredos[i]) {
+
+                        alert("Parabéns, Você ACERTOU!!!");
+                        achou = true;
+                        break;
+                    } 
+
+                }
+                if(achou == false) {
+                    alert("Xi, Você ERROU!!!");
+                }
+                
+
+            
+
+            input.value = "";
+            input.focus();
+
+            }    
+            var button = document.querySelector("button");
+            button.onclick = verifica;
+            //somente quando clicar que a function VERIFICA vai funcionar!!!
+
+
+    </script>
+    <br>
+    <footer>
+        Desenvolvido por Ivan Barros
+    </footer>
+</html>
